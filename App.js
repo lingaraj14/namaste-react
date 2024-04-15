@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 //Date: 11-03-2024 :: 11:37 PM
 
 //1. Normal or single element render in DOM
@@ -77,6 +79,6 @@ const element = React.createElement("div", { id: "parent" }, [
     React.createElement("h2", {}, "I am h2 tag"),
   ]),
 ]);
-console.log("element===:", element);
+//console.log("element===:", element);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(element);

@@ -19,3 +19,8 @@
 - Tree Shaking - remove unused code
 - Diferent dev and prod bundles
 Read more from Parcel documentation - https://parceljs.org/
+
+
+#2 types of Routing in web app
+- Client Side Routing
+- Server Side Routing

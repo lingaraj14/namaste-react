@@ -1,5 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
+import Layout from "./routing-n-error-handling/Layout";
+import About from "./routing-n-error-handling/About";
+import Contact from "./routing-n-error-handling/Contact";
+import Services from "./routing-n-error-handling/Services";
+import Error from "./routing-n-error-handling/Error";
+// Importing the Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 //Date: 11-03-2024 :: 11:37 PM
 
 //1. Normal or single element render in DOM
@@ -69,7 +77,7 @@ root.render(element); */
     </div>
 </div>
 */
-const element = React.createElement("div", { id: "parent" }, [
+/* const element = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child" }, [
     React.createElement("h1", {}, "I am h1 tag"),
     React.createElement("h2", {}, "I am h2 tag"),
@@ -79,6 +87,39 @@ const element = React.createElement("div", { id: "parent" }, [
     React.createElement("h2", {}, "I am h2 tag"),
   ]),
 ]);
-//console.log("element===:", element);
+//console.log("element===:", element); */
+
+//Now with JSX
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Layout />
+      <Outlet />
+    </div>
+  );
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(element);
+root.render(<RouterProvider router={appRouter} />);

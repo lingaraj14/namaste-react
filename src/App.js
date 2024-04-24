@@ -6,8 +6,13 @@ import About from "./routing-n-error-handling/About";
 import Contact from "./routing-n-error-handling/Contact";
 import Services from "./routing-n-error-handling/Services";
 import Error from "./routing-n-error-handling/Error";
+import Body from "./components/Body";
+import RestaurantMenu from "./components/RestaurantMenu";
+import Cart from "./components/Cart";
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
 //Date: 11-03-2024 :: 11:37 PM
 
 //1. Normal or single element render in DOM
@@ -92,10 +97,12 @@ root.render(element); */
 //Now with JSX
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Layout />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Layout />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -104,6 +111,10 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
       {
         path: "/about",
         element: <About />,
@@ -115,6 +126,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

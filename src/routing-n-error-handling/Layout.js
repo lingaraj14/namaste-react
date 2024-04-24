@@ -3,19 +3,36 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useSelector } from "react-redux";
 
 const Layout = () => {
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
+
+  //console.log("cartItems:", cartItems);
+
   return (
     <>
       <div className="header">
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Nav className="me-auto">
-              <Link to="/">Home</Link>
-              <Link to="/about">About us</Link>
-              <Link to="/services">Services</Link>
-              <Link to="/contact">Contact us</Link>
+            <Nav className="text-white">
+              <Link className="p-2" to="/">
+                Home
+              </Link>
+              <Link className="p-2" to="/about">
+                About us
+              </Link>
+              <Link className="p-2" to="/services">
+                Services
+              </Link>
+              <Link className="p-2" to="/contact">
+                Contact us
+              </Link>
             </Nav>
+            <Link className="p-2 text-white" to="/cart">
+              Cart ({`${cartItems.length}`} items)
+            </Link>
           </Container>
         </Navbar>
       </div>

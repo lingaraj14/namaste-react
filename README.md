@@ -1,6 +1,6 @@
-#Namaste React
+# Namaste React
 
-#Parcel
+# Parcel
 - Dev Build
 - Local Server
 - HMR = Hot Module Replacement (automatic refresh the page after doing some code change)
@@ -21,6 +21,29 @@
 Read more from Parcel documentation - https://parceljs.org/
 
 
-#2 types of Routing in web app
+# 2 types of Routing in web app
 - Client Side Routing
 - Server Side Routing
+
+
+# Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispatch(action)
+- Selector
+
+# Types of testing(developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# Settings for Testing our app
+- Install React Testing Library
+- Install JEST
+- Install Babel dependencies
+- Configure Babel
+- Configure Parcel Config file to disable default babel transpilation
+- Jest configuration (npx jest --init)
+- Install jsdom library

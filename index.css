@@ -1,6 +1,3 @@
-#heading{
-    color: red;
-}
-.navbar-nav a{
-    padding: 8px;;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 const Layout = () => {
   // Subscribing to the store using a Selector
   const cartItems = useSelector((store) => store.cart.items);
+
+  const [btnNameReact, setBtnNameReact] = useState("Login");
 
   //console.log("cartItems:", cartItems);
 
@@ -32,6 +34,18 @@ const Layout = () => {
             </Nav>
             <Link className="p-2 text-white" to="/cart">
               Cart ({`${cartItems.length}`} items)
+            </Link>
+            <Link className="p-2 text-white">
+              <button
+                className="login"
+                onClick={() => {
+                  btnNameReact === "Login"
+                    ? setBtnNameReact("Logout")
+                    : setBtnNameReact("Login");
+                }}
+              >
+                {btnNameReact}
+              </button>
             </Link>
           </Container>
         </Navbar>

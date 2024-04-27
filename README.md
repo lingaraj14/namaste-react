@@ -47,3 +47,6 @@ Read more from Parcel documentation - https://parceljs.org/
 - Configure Parcel Config file to disable default babel transpilation
 - Jest configuration (npx jest --init)
 - Install jsdom library
+- install @babel/preset-react - to make JSX work in the test cases
+- include @babel/preset-react inside my babel config
+- install @testing-library/jest-dom
